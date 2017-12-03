@@ -1,0 +1,165 @@
+<div ng-hide="vm.confirm" class="">
+    <form class="bc-form ng-pristine ng-valid-min ng-valid-max ng-invalid ng-invalid-required ng-valid-maxlength ng-valid-is-not-equal ng-invalid-is-valid-address" role="form" name="sendForm" autocomplete="off" novalidate="">
+        <fieldset>
+            <block-alert class="form-banner-alert ng-hide" ng-show="showAlertBanner" config="blockAlertBannerConfig" on-action="hideAlertBanner()">
+                <div class="block-alert flex-center flex-column-mobile ph-30 pv-15 pv-5-mobile ng-hide" ng-class="$ctrl.alert.type" ng-show="$ctrl.alert &amp;&amp; !$ctrl.dismissed"><span class="dismiss-action ng-hide" ng-show="$ctrl.dismissible" ng-click="$ctrl.dismiss()"><i class="ti-close f-14" ng-hide="$ctrl.collapsible"></i><i class="ti-angle-up f-14 hidden-xs ng-hide" ng-show="$ctrl.collapsible"></i></span><i class="alert-icon icon-lg mr-25 hidden-xs ng-hide" ng-show="$ctrl.showIcon" ng-class="$ctrl.iconTypes[$ctrl.alert.type]"></i>
+                    <div>
+                        <div class="mb-15 center-mobile"><span class="f-16 upper em-200 ng-hide" ng-show="$ctrl.alert.header"></span>
+                        </div>
+                        <!----><span class="f-12 ng-hide" ng-show="$ctrl.alert.action"><a class="text-color underline ng-hide" ng-show="$ctrl.alert.action.link" ng-href="" target="_blank" rel="noopener noreferrer"></a><span class="text-color pointer btn-sm btn-default" ng-hide="$ctrl.alert.action.link" ng-click="$ctrl.onAction()"></span></span>
+                    </div>
+                    <div class="visible-xs mt-10"><i class="ti-angle-up f-14 ng-hide" ng-show="$ctrl.collapsible" ng-click="$ctrl.dismiss()"></i>
+                    </div>
+                </div>
+                <div class="block-alert flex-center flex-between flex-column-mobile ph-30 pv-5 ng-hide" ng-class="$ctrl.alert.type" ng-show="$ctrl.alert &amp;&amp; $ctrl.collapsible &amp;&amp; $ctrl.dismissed">
+                    <div class="flex-center flex-grow"><i class="alert-icon f-18 mr-15 hidden-xs ng-hide" ng-show="$ctrl.showIcon" ng-class="$ctrl.iconTypes[$ctrl.alert.type]"></i>
+                        <div class="center-mobile flex-grow"><span class="f-16 upper em-200 ng-hide" ng-show="$ctrl.alert.header"></span>
+                        </div>
+                    </div><i class="ti-angle-down mt-5 f-14 pointer" ng-click="$ctrl.dismissed = false"></i>
+                </div>
+            </block-alert>
+            <div class="group inline">
+                <div class="item width-30 width-50-mobile mb-20 mr-20">
+                    <label class="colon" translate="CURR">Currency</label>
+                    <asset-select asset="vm.asset" on-select="vm.showTab(asset)">
+                        <div class="asset-select hidden-xs ui-select-container ui-select-bootstrap dropdown ng-not-empty ng-valid ng-touched" ng-class="{open: $select.open}" ng-model="$ctrl.asset" ng-change="$ctrl.onChange($ctrl.asset)" tagging="" style="">
+                            <div class="ui-select-match" ng-hide="$select.open" ng-disabled="$select.disabled" ng-class="{'btn-default-focus':$select.focus}" placeholder="Select" style=""><span tabindex="-1" class="btn btn-default form-control ui-select-toggle" aria-label="Select box activate" ng-disabled="$select.disabled" ng-click="$select.activate()" style="outline: 0;"><span ng-show="$select.isEmpty()" class="ui-select-placeholder text-muted ng-hide">Select</span> <span ng-hide="$select.isEmpty()" class="ui-select-match-text pull-left" ng-class="{'ui-select-allow-clear': $select.allowClear &amp;&amp; !$select.isEmpty()}" ng-transclude=""><i class="pr-10 icon-bitcoin"></i><span>Bitcoin</span></span> <i class="caret pull-right" ng-click="$select.toggle($event)"></i> <a ng-show="$select.allowClear &amp;&amp; !$select.isEmpty()" aria-label="Select box clear" style="margin-right: 10px" ng-click="$select.clear($event)" class="btn btn-xs btn-link pull-right ng-hide"><i class="glyphicon glyphicon-remove" aria-hidden="true"></i></a>
+                                </span>
+                            </div>
+                            <input type="text" autocomplete="false" tabindex="-1" aria-expanded="true" aria-label="Select box" aria-owns="ui-select-choices-4" aria-activedescendant="ui-select-choices-row-4-0" class="form-control ui-select-search ng-pristine ng-valid ng-empty ng-touched ng-hide" placeholder="Select" ng-model="$select.search" ng-show="$select.searchEnabled &amp;&amp; $select.open" style="">
+                            <ul class="ui-select-choices ui-select-choices-content ui-select-dropdown dropdown-menu" role="listbox" ng-show="$select.items.length > 0" repeat="asset in $ctrl.assets" style="opacity: 1;">
+                                <li class="ui-select-choices-group" id="ui-select-choices-4">
+                                    <div class="divider ng-hide" ng-show="$select.isGrouped &amp;&amp; $index > 0"></div>
+                                    <div ng-show="$select.isGrouped" class="ui-select-choices-group-label dropdown-header ng-hide" ng-bind="$group.name"></div>
+                                    <!---->
+                                    <!---->
+                                    <!---->
+                                    <!---->
+                                    <!---->
+                                </li>
+                            </ul>
+                            <ui-select-single></ui-select-single>
+                            <input ng-disabled="$select.disabled" class="ui-select-focusser ui-select-offscreen" type="text" id="focusser-4" aria-label="Select box focus" aria-haspopup="true" role="button">
+                        </div>
+                        <select class="visible-xs ng-pristine ng-untouched ng-valid ng-not-empty" ng-model="$ctrl.asset" ng-change="$ctrl.onChange($ctrl.asset)" ng-options="asset as asset.name for asset in $ctrl.assets track by asset.code">
+                            <option label="Bitcoin" value="btc" selected="selected">Bitcoin</option>
+                            <option label="Ether" value="eth">Ether</option>
+                        </select>
+                    </asset-select>
+                </div>
+                <!---->
+            </div>
+            <div class="pos-rel">
+                <div class="form-cover ng-hide" ng-show="showAlert"></div>
+                <block-alert class="form-cover-alert ng-hide" ng-show="showAlert" config="blockAlertConfig" on-action="hideAlert()">
+                    <div class="block-alert flex-center flex-column-mobile ph-30 pv-15 pv-5-mobile ng-hide" ng-class="$ctrl.alert.type" ng-show="$ctrl.alert &amp;&amp; !$ctrl.dismissed"><span class="dismiss-action ng-hide" ng-show="$ctrl.dismissible" ng-click="$ctrl.dismiss()"><i class="ti-close f-14" ng-hide="$ctrl.collapsible"></i><i class="ti-angle-up f-14 hidden-xs ng-hide" ng-show="$ctrl.collapsible"></i></span><i class="alert-icon icon-lg mr-25 hidden-xs ng-hide" ng-show="$ctrl.showIcon" ng-class="$ctrl.iconTypes[$ctrl.alert.type]"></i>
+                        <div>
+                            <div class="mb-15 center-mobile"><span class="f-16 upper em-200 ng-hide" ng-show="$ctrl.alert.header"></span>
+                            </div>
+                            <!----><span class="f-12 ng-hide" ng-show="$ctrl.alert.action"><a class="text-color underline ng-hide" ng-show="$ctrl.alert.action.link" ng-href="" target="_blank" rel="noopener noreferrer"></a><span class="text-color pointer btn-sm btn-default" ng-hide="$ctrl.alert.action.link" ng-click="$ctrl.onAction()"></span></span>
+                        </div>
+                        <div class="visible-xs mt-10"><i class="ti-angle-up f-14 ng-hide" ng-show="$ctrl.collapsible" ng-click="$ctrl.dismiss()"></i>
+                        </div>
+                    </div>
+                    <div class="block-alert flex-center flex-between flex-column-mobile ph-30 pv-5 ng-hide" ng-class="$ctrl.alert.type" ng-show="$ctrl.alert &amp;&amp; $ctrl.collapsible &amp;&amp; $ctrl.dismissed">
+                        <div class="flex-center flex-grow"><i class="alert-icon f-18 mr-15 hidden-xs ng-hide" ng-show="$ctrl.showIcon" ng-class="$ctrl.iconTypes[$ctrl.alert.type]"></i>
+                            <div class="center-mobile flex-grow"><span class="f-16 upper em-200 ng-hide" ng-show="$ctrl.alert.header"></span>
+                            </div>
+                        </div><i class="ti-angle-down mt-5 f-14 pointer" ng-click="$ctrl.dismissed = false"></i>
+                    </div>
+                </block-alert>
+                <div class="group">
+                    <div class="item">
+                        <label class="colon" translate="TO">To</label>
+                        <div>
+                            <div class="flex-column">
+                                <p class="form-control-static ng-hide" ng-hide="originsLoaded"><img src="img/spinner-8de10c3e9fd9f1c447099e6d23b5c24931c019da.gif">
+                                </p>
+                                <div ng-show="originsLoaded" ng-class="{'has-error': sendForm.destination.$invalid &amp;&amp; sendForm.destination.$touched &amp;&amp; transaction.destination.address !== ''}" class="">
+                                    <destination-input name="destination" ng-model="transaction.destination" ng-model-options="{ updateOn: 'blur' }" ng-change="checkForSameDestination()" ng-paste="handlePaste($event)" on-payment-request="applyPaymentRequest(request)" set-input-metric="$parent.inputMetric = metric" ignore="transaction.from" required="" class="ng-pristine ng-not-empty ng-valid-required ng-valid-is-not-equal ng-invalid ng-invalid-is-valid-address ng-touched" style="">
+                                        <div class="destination-input">
+                                            <div class="ui-select-container ui-select-bootstrap dropdown ng-not-empty ng-valid ng-hide" ng-class="{open: $select.open}" ng-model="model" ng-model-options="{}" ng-show="selectOpen" on-select="setModel($select.selected); setInputMetric({metric: 'dropdown'})" ui-select-open="$parent.selectOpen" ui-select-on-close="$parent.selectOpen=false; focusInput()" tagging="">
+                                                <div class="ui-select-match" ng-hide="$select.open" ng-disabled="$select.disabled" ng-class="{'btn-default-focus':$select.focus}" placeholder="Search..."><span tabindex="-1" class="btn btn-default form-control ui-select-toggle" aria-label="Select box activate" ng-disabled="$select.disabled" ng-click="$select.activate()" style="outline: 0;"><span ng-show="$select.isEmpty()" class="ui-select-placeholder text-muted ng-hide">Search...</span> <span ng-hide="$select.isEmpty()" class="ui-select-match-text pull-left" ng-class="{'ui-select-allow-clear': $select.allowClear &amp;&amp; !$select.isEmpty()}" ng-transclude=""></span> <i class="caret pull-right" ng-click="$select.toggle($event)"></i> <a ng-show="$select.allowClear &amp;&amp; !$select.isEmpty()" aria-label="Select box clear" style="margin-right: 10px" ng-click="$select.clear($event)" class="btn btn-xs btn-link pull-right ng-hide"><i class="glyphicon glyphicon-remove" aria-hidden="true"></i></a>
+                                                    </span>
+                                                </div>
+                                                <input type="text" autocomplete="false" tabindex="-1" aria-expanded="true" aria-label="Select box" aria-owns="ui-select-choices-5" aria-activedescendant="ui-select-choices-row-5--1" class="form-control ui-select-search ng-pristine ng-untouched ng-valid ng-empty ng-hide" placeholder="Search..." ng-model="$select.search" ng-show="$select.searchEnabled &amp;&amp; $select.open">
+                                                <ul class="ui-select-choices ui-select-choices-content ui-select-dropdown dropdown-menu ng-hide" role="listbox" ng-show="$select.items.length > 0" repeat="d in destinations | filter:{label:$select.search} | limitTo:limit track by $index" group-by="'type'">
+                                                    <!---->
+                                                </ul>
+                                                <ui-select-single></ui-select-single>
+                                                <input ng-disabled="$select.disabled" class="ui-select-focusser ui-select-offscreen" type="text" id="focusser-5" aria-label="Select box focus" aria-haspopup="true" role="button">
+                                            </div>
+                                            <div class="input-group" ng-click="focus()" ng-hide="selectOpen">
+                                                <button class="form-control ng-hide" type="button" ng-hide="model.type === 'External'" ng-click="clearModel(); focusInput();"><span class="pull-left"><label-origin origin="model" simple="true"><span><span ng-show="$ctrl.origin" ng-bind-html="($ctrl.origin.label || $ctrl.origin.address) | escapeHtml | highlight:$ctrl.highlight" translate="no" class=""></span></span><span ng-hide="$ctrl.simple &amp;&amp; $ctrl.origin.type !== 'Accounts'" class="ng-hide"><span ng-hide="$ctrl.origin.balance == null" class="ng-hide">&ensp;()&ensp;</span><span class="label label-default ng-hide" ng-show="$ctrl.origin.isWatchOnly" translate="WATCH_ONLY">Watch Only</span></span>
+                                                    </label-origin>
+                                                    </span>
+                                                </button>
+                                                <input class="form-control ng-pristine ng-valid ng-empty ng-touched" id="address-field" type="text" tabindex="1" autocomplete="off" placeholder="Paste or scan an address or select a destination" ng-model="model.address" ng-show="model.type === 'External'" ng-blur="blur()" ng-paste="setInputMetric({metric: 'paste'})" autofocus="" style="">
+                                                <div class="input-group-btn">
+                                                    <button class="qr-scan-button btn btn-default" type="button" ng-disabled="!browserWithCamera" uib-popover-template="popoverTemplate" popover-trigger="outsideClick" popover-is-open="cameraOn" popover-append-to-body="true" popover-class="qr-popover" ng-click="loader(); cameraOn = true;" on-scan="onAddressScan"><img src="img/qr-code-9a15e8dc0763fda10f200db52b2e7002274464d1.png" alt="QR" ng-hide="loading" class="">
+                                                        <div class="ladda-button ng-hide" ng-show="loading"><span class="ladda-spinner"><div class="spinner"></div></span>
+                                                        </div>
+                                                    </button>
+                                                    <button class="btn btn-default brdrn ng-hide" type="button" ng-hide="dropdownHidden" ng-click="selectOpen=true"><span class="caret"></span><span class="sr-only">Toggle Dropdown</span>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </destination-input>
+                                </div>
+                                <div class="has-error"><span class="help-block type-sm ng-hide" translate="BITCOIN_ADDRESS_INVALID" ng-show="sendForm.destination.$error.isValidAddress &amp;&amp; sendForm.destination.$touched &amp;&amp; transaction.destination.address !== ''">Invalid Bitcoin Address</span><span class="help-block type-sm ng-hide" translate="SAME_DESTINATION" ng-show="sendForm.destination.$error.isNotEqual">Cannot send to self</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item mt-20">
+                        <label class="colon" translate="AMOUNT">Amount</label>
+                        <div class="flex-center">
+                            <div class="flex-1 flex-center border">
+                                <input class="form-control no-border ng-pristine ng-untouched ng-empty ng-valid-min ng-valid-max ng-invalid ng-invalid-required" type="number" ng-model="transaction.amount" name="amount" tabindex="1" transform-currency="btcCurrency" placeholder="0" min="1" max="2100000000000000" ng-change="setPaymentAmount()" required=""><span class="mhm">BTC</span>
+                            </div><i class="ti-arrows-horizontal h4 border-grey phm hidden-xs"></i>
+                            <div class="flex-1 flex-center border">
+                                <input class="form-control no-border ng-pristine ng-untouched ng-empty ng-valid-min ng-valid-max ng-invalid ng-invalid-required" type="number" ng-model="transaction.amount" name="fiatAmount" tabindex="1" transform-currency="fiatCurrency" placeholder="0" min="1" max="2100000000000000" ng-change="setPaymentAmount()" required=""><span class="mhm">USD</span>
+                            </div>
+                        </div>
+                        <div class="has-error"><span class="state-danger-text ng-hide" ng-click="useAll()" ng-class="{'pointer': transaction.destinations.length === 1}" ng-show="transaction.maxAvailable > 0 &amp;&amp; transaction.maxAvailable != null &amp;&amp; getTransactionTotal() > transaction.maxAvailable &amp;&amp; !failedToLoadUnspent"><span class="type-sm" translate="USE_TOTAL">Use total available minus fee</span>:&nbsp;<span class="type-sm pointer">0 BTC</span></span><span class="help-block ng-hide" ng-show="failedToLoadUnspent" ng-click="reopenModal()"><span class="type-sm pointer" translate="ERR_FETCH_UNSPENT_RETRY">Failed to load available balance, click <u>here</u> to retry</span></span>
+                        </div>
+                    </div>
+                    <div class="item mt-20">
+                        <label><span class="colon" translate="DESCRIPTION">Description</span>
+                            <button class="helper" type="button" uib-popover-template="helperText.templateUrl" popover-class="message-contextual" popover-append-to-body="true" popover-trigger="outsideClick" popover-placement="top" popover-is-open="popoverIsOpen" ng-class="{active: popoverIsOpen}" ng-click="popoverIsOpen = !popoverIsOpen" content="SEND_BITOIN_STEP2B"><span ng-show="!popoverIsOpen &amp;&amp; !warning" class="">?</span><span ng-show="!popoverIsOpen &amp;&amp; warning" class="ng-hide">!</span><span class="close-helper ng-hide" ng-show="popoverIsOpen"></span>
+                            </button>
+                        </label>
+                        <div class="flex-1">
+                            <textarea class="pas ng-pristine ng-untouched ng-valid ng-empty ng-valid-maxlength" rows="4" ng-model="transaction.note" name="note" maxlength="512" placeholder="Money for rent 🏡"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <!---->
+                <div class="group" ng-if="!advanced">
+                    <div class="group inline flex-center mt-20">
+                        <div class="item inline width-60 width-60-mobile">
+                            <label class="mbn colon" translate="TX_FEE">Transaction Fee</label>
+                            <select name="fee" ng-model="transaction.feeType" ng-change="payment.updateFeePerKb(transaction.fees[transaction.feeType])" ng-options="feeType as feeType | translate for (feeType, fee) in transaction.fees | fees" tabindex="" required="" class="ng-pristine ng-untouched ng-valid ng-not-empty ng-valid-required">
+                                <option label="Regular" value="string:regular" selected="selected">Regular</option>
+                                <option label="Priority" value="string:priority">Priority</option>
+                            </select>
+                        </div>
+                        <div class="item right-align width-40 width-40-mobile">
+                            <!---->
+                        </div>
+                    </div>
+                    <div class="group inline mt-5">
+                        <div class="item inline width-100 flex-between">
+                            <!---->
+                            <!----><span class="f-12 state-danger-text" ng-if="transaction.maxAvailable <= 0">You do not have enough funds to use this fee.</span>
+                            <!----><a class="f-12" ng-click="advancedSend()" translate="Customize Fee">Customize Fee</a>
+                        </div>
+                    </div>
+                </div>
+                <!---->
+                <!---->
+            </div>
+        </fieldset>
+    </form>
+</div>

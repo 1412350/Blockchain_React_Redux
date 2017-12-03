@@ -1,0 +1,331 @@
+.login-pg {
+  background: #044a7c;
+  height: 960px;
+  margin: 0px;
+  
+  .banner {
+    margin: 0px;
+    padding-top: 20px;
+    padding-left: 30px;
+    color: white;
+    font-family: "Montserrat Bold", sans-serif;
+  }
+}
+
+.login-box {
+  padding: 35px 40px 30px 40px;
+  margin: 50px auto;
+  background: white;
+  overflow: auto;
+  line-height: 30px;
+  
+  .link {
+    cursor: pointer;
+    color: #10ADE4;
+    float: right !important;
+    font-family: "Montserrat ExtraLight", sans-serif;
+  }
+  h2 {
+    font-family: "Montserrat Bold", sans-serif;
+  }
+
+  input {
+    width: 100%;
+    border-radius: 0px;
+    box-shadow: none;
+    padding: 5px;
+    line-height: 25px;
+    font-size: 90%;
+  }
+
+  label {
+    font-family: "Montserrat Medium", sans-serif;
+    font-size: 90%;
+    margin-bottom: 0px;
+  }
+
+  .description {
+    font-family: "Montserrat ExtraLight", sans-serif;
+  }
+
+  .title {
+    font-family: "GillSans Light", sans-serif;
+    width: 500px;
+  }
+
+  .btn-login {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    background: #77cced;
+    border-radius: 3px;
+    font-weight: 400;
+    text-transform: uppercase;
+    color: white;
+    letter-spacing: 0.07em;
+    border: none;
+    width: 100%;
+    height: 40px;
+    font-family: "Montserrat Medium", sans-serif;
+    cursor: pointer;
+    &:hover {
+      background-color: #3ca2c7;
+    }
+  }
+
+  .row {
+    a {
+      float: right;
+    }
+  }
+
+  .form-group {
+    em {
+      font-weight: bold;
+      font-size: 80%;
+      font-family: "Montserrat ExtraLight", sans-serif;
+    }
+  }
+  
+  .forgot-pass {
+    a {
+      font-family: "Montserrat ExtraLight", sans-serif;
+      font-weight: bold;
+      font-size: 80%;
+    }
+  }
+
+  .item-check {
+    flex-direction: row;
+    align-items: center;
+    display: flex;
+    position: relative;
+    label {
+      font-family: "Montserrat ExtraLight", sans-serif;
+      font-weight: bold;
+      font-size: 80%;
+    }
+
+    #term-service, #remember-me {
+      width: auto;
+      height: auto;
+      margin: 1em 0.5em 1em 0;
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .login-box {
+    width: 60%;
+  }
+}
+
+@media (min-width: 992px) {
+  .login-box {
+    width: 50%;
+  }
+}
+
+@media (min-width: 1200px) {
+  .login-box {
+    width: 30%;
+  }
+}
+
+@media (min-width: 1440px) {
+  .login-box {
+    width: 30%;
+  }
+  .wallet-info {
+    width: 100%;
+    
+  }
+  .wallet-transactions {
+    width: 100%;   
+  }
+  .wallet-container {
+    width: 100%;   
+  }
+}
+
+#login-alert {
+  color: #a94442 !important;
+  font-family: "Montserrat Light", sans-serif;  
+  float: right !important;
+}
+.nav-header {
+  background-color: rgb(0, 74, 124);
+  .banner {
+    font-family: "Montserrat Bold", sans-serif !important;
+    color: white !important;
+    font-weight: bold;
+  }
+  a {
+    color: white;
+    &:hover {
+      color: rgb(165, 169, 172);
+    }
+  }
+}
+
+.wallet-header {
+  padding-top: 10px;
+  font-family: "Montserrat Light", sans-serif !important;
+}
+
+.wallet-copyright {
+  font-size: 0.5em;
+  font-weight: 300;
+  vertical-align: text-top;
+}
+
+.btn-wallet {
+  background-color: white !important;
+  border-color: #e0e0e0 !important; 
+  color: black !important;
+  margin-right: 5px !important;
+  &:hover {
+    background-color: rgb(165, 169, 172) !important;
+    cursor: pointer;
+  }
+}
+.wallet-container {
+  padding: 20px;
+  font-family: "Montserrat Light", sans-serif !important;
+  
+}
+.wallet-info {
+  padding-left : 20px;
+  font-family: "Montserrat Light", sans-serif !important;
+
+}
+.send-icon {
+  margin-right: 5px;
+}
+
+.card-table {
+  padding-top: 10px;
+}
+
+.wallet-card {
+  padding-top: 10px;
+  .card {
+    border-radius: 0% !important;
+    padding: 15px !important;
+    .card-title {
+      color: #004a7c !important;
+      font-weight: 300;
+    }
+    .card-text {
+      color: #5f5f5f !important;
+      text-align: center;
+    }
+    
+  }
+  .card-balance {
+    .card-text {
+      font-size: 28px;
+      font-weight: 300;
+    }
+  }
+  .card-transactions {
+    .card-filters {
+      padding: 0px 30px;
+      background: #F5F7F9;
+      width: 100%;
+      border-bottom: 1px solid #DDD;
+      height: 50px;
+      z-index: 10;
+      list-style-type: none;
+      .active {
+          color: black;
+        }
+      li {
+        display: inline-block;
+        padding: 8px;
+        color: gray;
+        cursor: pointer;
+        &:hover {
+          color: #756F6F;
+        }
+        font-family: "Montserrat Medium", sans-serif;
+      }
+    }
+  }
+  
+}
+
+.wallet-id {
+  float: right !important;
+  font-style: italic;
+}
+
+.modal-content {
+  color: #5f5f5f !important;
+  padding: 10px;
+  border-radius: 0% !important;
+}
+
+.modal-title {
+  .btn-close{
+    float: right;
+    border: none;
+    background:white;
+    color: gray;
+    font-family: "Montserrat Medium", sans-serif;
+    cursor: pointer;
+    &:hover {
+      background-color: #3ca2c7;
+    }
+  }
+}
+.send-form {
+  input, textarea, .input-group-addon {
+    border-radius: 0% !important;
+  }
+  label {
+    font-family: "Montserrat Medium", sans-serif;
+    font-size: 90%;
+    margin-bottom: 0px;
+  }
+  
+  .btn-send{
+    margin-top: 15px;
+    margin-bottom: 15px;
+    background: #77cced;
+    border-radius: 3px;
+    font-weight: 400;
+    text-transform: uppercase;
+    color: white;
+    letter-spacing: 0.07em;
+    border: none;
+    width: 100%;
+    height: 40px;
+    font-family: "Montserrat Medium", sans-serif;
+    cursor: pointer;
+    &:hover {
+      background-color: #3ca2c7;
+    }
+  }
+}
+.des {
+  width: 500px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break all;
+  word-wrap: break-word; 
+}
+
+[class^="icon-"]:before,
+[class*="icon-"]:before,
+[class^="ti-"]:before,
+[class*="ti-"]:before {
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  /* better font rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
+.icon-send:before {
+  content: "\e911"; }
