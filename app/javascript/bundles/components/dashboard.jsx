@@ -54,8 +54,8 @@ export default class Dashboard extends React.Component {
                 <li className={(this.state.transaction_title === "RECENT ACTIVITY") ? "active" : ""} onClick={(e) => this.updateTitle("RECENT ACTIVITY", 2)}><a>Recent activity</a></li>
               </ul>  
               <hr/>
-              <TransactionTable transactions={this.props.transactions} 
-                updateTitle = {this.updateTitle.bind(this)}/>          
+              { this.props.transactions == "There's no transaction yet!" ? <span><p>{this.props.transactions}</p></span> : <TransactionTable transactions={this.props.transactions} 
+                updateTitle = {this.updateTitle.bind(this)}/>}                       
             </Card>
           </div>
         </Col>
