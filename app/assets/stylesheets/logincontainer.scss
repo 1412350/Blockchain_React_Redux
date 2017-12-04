@@ -154,13 +154,17 @@
 }
 .nav-header {
   background-color: rgb(0, 74, 124);
+  height: 60px;
   .banner {
     font-family: "Montserrat Bold", sans-serif !important;
     color: white !important;
     font-weight: bold;
+    font-size: 25px;
   }
   a {
     color: white;
+    font-family: "Montserrat Medium", sans-serif;  
+    font-size: 16px;    
     &:hover {
       color: rgb(165, 169, 172);
     }

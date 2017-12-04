@@ -13,7 +13,9 @@ export default class SignIn extends React.Component {
     this.defaultRecord("");
     this.updateInput = this.updateInput.bind(this);
   }
-  
+  componentWillMount() {
+    this.setState({wallet_id: this.props.wallet_id})
+  }
   updateInput(name, value) {
     this.setState({[name]: value});
   }
@@ -27,11 +29,9 @@ export default class SignIn extends React.Component {
     .then(response => {
       window.localStorage.setItem('auth_token', response.data.auth_token);
       this.props.updateToken();
-      console.log(this.props.state);
       window.location.hash = '/';
     })
     .catch(error => {
-      console.log(error.response)
       this.setState({
         error: error.response.data
       });
@@ -39,8 +39,8 @@ export default class SignIn extends React.Component {
     this.defaultRecord(this.state.error);    
   }
 
-  defaultRecord(error) {
-    this.state = {wallet_id: "", password: "", cfpassword: "", error: error}
+  defaultRecord(error, wallet) {
+    this.state = {wallet_id: wallet, password: "", cfpassword: "", error: error}
   }
 
   render() {

@@ -97,7 +97,7 @@ export default class DashboardContainer extends React.Component {
           <NavbarBrand className="banner">BLOCKCHAIN</NavbarBrand>
           <Nav className="ml-auto" navbar>
             <NavItem>
-              <NavLink href="/#/users/sign_out">Logout</NavLink>
+              <NavLink href="/#/users/sign_out">SIGN OUT</NavLink>
             </NavItem>
           </Nav>
         </Navbar>

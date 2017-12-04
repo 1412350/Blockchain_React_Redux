@@ -50,7 +50,7 @@ export default class MainContainer extends React.Component {
       }
       else {
         return (
-          <SignIn updateToken={this.updateToken.bind(this)} updateWallet={this.updateWallet.bind(this)}/>
+          <SignIn updateToken={this.updateToken.bind(this)} updateWallet={this.updateWallet.bind(this)} wallet_id={this.state.wallet_id}/>
         );
       }
     }
@@ -86,7 +86,7 @@ export default class MainContainer extends React.Component {
       }
       else {
         return (
-          <SignIn updateToken={this.updateToken.bind(this)} updateWallet={this.updateWallet.bind(this)}/>          
+          <SignIn updateToken={this.updateToken.bind(this)} updateWallet={this.updateWallet.bind(this)} wallet_id={this.state.wallet_id}/>          
         );
       }
     }
