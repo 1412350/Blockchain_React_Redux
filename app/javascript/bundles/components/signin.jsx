@@ -45,7 +45,7 @@ export default class SignIn extends React.Component {
 
   render() {
     return(
-      <SigninContainer title="Sign in" description="Sign in to your wallet">
+      <SigninContainer title="Welcome Back!" description="Sign in to your wallet below">
         <Form action="/users/sign_in" method="post" onSubmit={this.handleSubmit.bind(this)}>
          <FormGroup>
            <div id='login-alert'>
