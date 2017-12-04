@@ -150,7 +150,6 @@
 #login-alert {
   color: #a94442 !important;
   font-family: "Montserrat Light", sans-serif;  
-  float: right !important;
 }
 .nav-header {
   background-color: rgb(0, 74, 124);
@@ -204,6 +203,8 @@
 }
 .send-icon {
   margin-right: 5px;
+  font-family: "Montserrat Light", sans-serif !important;
+  font-style: none;
 }
 
 .card-table {

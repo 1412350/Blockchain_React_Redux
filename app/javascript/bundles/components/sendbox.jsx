@@ -51,20 +51,20 @@ export default class SendForm extends React.Component {
            { this.state.error != '' ? <p>{this.state.error}</p> : <span></span> }
          </div>
          <Label className="form-label">To: </Label>
-         <Input type="text" name="recipient_wallet_id" value={this.state.wallet_id}
+         <Input className="description" type="text" name="recipient_wallet_id" placeholder="Paste a wallet id of Recipient" value={this.state.wallet_id}
                 onChange={(e) => this.onChange(e.target.name, e.target.value)}/>
        </FormGroup>
        <FormGroup>
          <Label className="form-label">Amount: </Label>
          <InputGroup>
-          <Input type="decimal" name="amount" placeholder="0"
+          <Input className="description" type="decimal" name="amount" placeholder="0"
           onChange={(e) => this.onChange(e.target.name, e.target.value)}/>
           <InputGroupAddon>BTC</InputGroupAddon>
          </InputGroup>
        </FormGroup>
        <FormGroup>
          <Label className="form-label">Description</Label>
-         <Input type="textarea" name="description" 
+         <Input className="description" type="textarea" name="description" placeholder="Description of this transaction" 
          onChange={(e) => this.onChange(e.target.name, e.target.value)}/>
        </FormGroup>
        <Button type="submit" className="btn btn-send" block={true}>Send</Button>

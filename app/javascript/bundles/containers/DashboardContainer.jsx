@@ -125,7 +125,7 @@ export default class DashboardContainer extends React.Component {
               <span className="wallet-copyright">®</span>
             </h3>
             <Button className="btn-wallet" onClick={this.toggleModal.bind(this)}>
-              <i className="send-icon fa fa-paper-plane"></i>
+              <i className="fa fa-paper-plane"></i>
               Send
             </Button>
             <hr/>
@@ -141,7 +141,7 @@ export default class DashboardContainer extends React.Component {
           <br></br>
           <Modal isOpen={this.state.modal}>
             <ModalHeader >
-            <i className="send-icon fa fa-paper-plane">Send Bitcoin</i>    
+            <i className="fa fa-paper-plane"></i><i className="send-icon">Send Bitcoin</i>    
             <Button onClick={this.toggleModal.bind(this)} className="btn btn-close">
               X
             </Button>
