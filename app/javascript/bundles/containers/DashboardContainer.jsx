@@ -92,7 +92,6 @@ export default class DashboardContainer extends React.Component {
     this.handleGetUserWallet();
     this.getRecentTransactions();    
     this.getUsers();
-    console.log(this.state.users);
   }
   updateType(type)
   {
