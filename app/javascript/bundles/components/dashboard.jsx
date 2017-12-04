@@ -7,10 +7,14 @@ export default class Dashboard extends React.Component {
   constructor() {
     super();
     this.state = {
-      transaction_title: "RECENT ACTIVITY"
+      transaction_title: "RECENT ACTIVITY",
+      users: []
     }
+    this.handleChange = this.handleChange.bind(this)
   }
-  
+  handleChange(e) {
+    this.setState({users: this.props.listOption[e.target.value].obj})
+  }
   updateTitle(title, type)
   {
     if (type == 1)
@@ -40,6 +44,8 @@ export default class Dashboard extends React.Component {
           </div>
         </Col>
         <Col sm="12" md="8">
+        </Col>
+        <Col sm="12" md="12">
           <div className="wallet-card">
             <Card className="card-transactions">
               <CardTitle>{this.state.transaction_title}</CardTitle>
