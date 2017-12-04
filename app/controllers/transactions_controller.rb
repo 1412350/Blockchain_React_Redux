@@ -2,12 +2,13 @@ class TransactionsController < ApplicationController
   def create
     @sender = User.find_by(wallet_id: params[:transaction][:sender_wallet_id])
     @recipient = User.find_by(wallet_id: params[:transaction][:recipient_wallet_id]) 
-    if @sender.account_balance < params[:transaction][:amount]
-      render json: "You don't have enough money to send!", status: 401
+    amount = params[:transaction][:amount]
+    if ((!amount.present?) || (params[:transaction][:amount] < 0) )
+      render json: "Invalid amount of money!\n Amount have to be greater than 0 and be a float number!", status: 401
     else
-      if ((params[:transaction][:amount] < 0) || (!params[:transaction][:amount].present?))
-        render json: "Invalid amount of money!\n Amount have to be greater than 0 and is a float number!", status: 401
-      else
+      if @sender.account_balance < params[:transaction][:amount]
+        render json: "You don't have enough money to send!", status: 401
+      else     
         if @recipient.present?
           @transaction = Transaction.new(sender_id: @sender.id, recipient_id: @recipient.id, 
             amount: params[:transaction][:amount], description: params[:transaction][:description])

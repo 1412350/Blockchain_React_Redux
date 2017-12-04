@@ -39,8 +39,8 @@ export default class SignIn extends React.Component {
     this.defaultRecord(this.state.error);    
   }
 
-  defaultRecord(error, wallet) {
-    this.state = {wallet_id: wallet, password: "", cfpassword: "", error: error}
+  defaultRecord(error) {
+    this.state = {password: "", cfpassword: "", error: error}
   }
 
   render() {
