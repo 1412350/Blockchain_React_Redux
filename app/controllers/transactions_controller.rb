@@ -5,8 +5,8 @@ class TransactionsController < ApplicationController
     if @sender.account_balance < params[:transaction][:amount]
       render json: "You don't have enough money to send!", status: 401
     else
-      if params[:transaction][:amount] < 0
-        render json: "Invalid amount of money! (Amount > 0)", status: 401
+      if ((params[:transaction][:amount] < 0) || (!params[:transaction][:amount].present?))
+        render json: "Invalid amount of money!\n Amount have to be greater than 0 and is a float number!", status: 401
       else
         if @recipient.present?
           @transaction = Transaction.new(sender_id: @sender.id, recipient_id: @recipient.id, 
