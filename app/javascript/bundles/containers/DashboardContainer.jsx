@@ -20,15 +20,21 @@ export default class DashboardContainer extends React.Component {
       balance: 1000, 
       alert: "",
       transactions: [],
+      users: [],
+      selectedvalue: "",
       type: "RECENT ACTIVITY"
     }
+    this.handleChange = this.handleChange.bind(this)
+
   }
   toggleModal() {
     this.setState({
       modal: !this.state.modal
     })
   }
-
+  handleChange(value) {
+    this.setState({selectedvalue: this.state.users[value].wallet_id})
+  }
   getRecentTransactions() {
     axios.get('/recent_transactions')
     .then(response => {
@@ -41,6 +47,17 @@ export default class DashboardContainer extends React.Component {
       this.setState({
         alert: response.data
       })
+    })
+  }
+  getUsers() {
+    axios.get('/users')
+    .then(response => {
+      this.setState({
+        users: response.data,
+        selectedvalue: response.data[0].wallet_id     
+      })
+    })
+    .catch(error => {
     })
   }
   getTransactionsList() {
@@ -74,6 +91,8 @@ export default class DashboardContainer extends React.Component {
   componentWillMount() {
     this.handleGetUserWallet();
     this.getRecentTransactions();    
+    this.getUsers();
+    console.log(this.state.users);
   }
   updateType(type)
   {
@@ -115,7 +134,10 @@ export default class DashboardContainer extends React.Component {
               wallet_id = {this.state.wallet_id} transactions = {this.state.transactions}
               getRecentTransactions={this.getRecentTransactions.bind(this)}
                 getTransactionsList={this.getTransactionsList.bind(this)}
-                updateType={this.updateType.bind(this)}/>             
+                updateType={this.updateType.bind(this)}
+                users = {this.state.users}
+                selectedvalue= {this.state.selectedvalue}
+                handleChange = {this.handleChange.bind(this)}/>             
           </div>
           <br></br>
           <Modal isOpen={this.state.modal}>

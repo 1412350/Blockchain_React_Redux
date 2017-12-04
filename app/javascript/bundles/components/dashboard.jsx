@@ -2,18 +2,14 @@
 import * as React from 'react';
 import { Row, Col, Button, Card, CardText, CardBody, CardTitle, CardSubtitle, Table } from 'reactstrap';
 import TransactionTable from './transactionsTable'
+import axios from 'axios';
 
 export default class Dashboard extends React.Component {
   constructor() {
     super();
     this.state = {
-      transaction_title: "RECENT ACTIVITY",
-      users: []
+      transaction_title: "RECENT ACTIVITY"
     }
-    this.handleChange = this.handleChange.bind(this)
-  }
-  handleChange(e) {
-    this.setState({users: this.props.listOption[e.target.value].obj})
   }
   updateTitle(title, type)
   {
@@ -44,6 +40,22 @@ export default class Dashboard extends React.Component {
           </div>
         </Col>
         <Col sm="12" md="8">
+          <div className="wallet-card">
+            <Card className="card-balance">
+              <CardTitle>GET USER WALLET</CardTitle>
+              <p className="description">Choose a user with user's email to show that user's wallet id <br></br>(This is a help for send BTC transactions)</p>              
+              <hr/>
+              <p>User's Email: 
+              <select onChange={(e) => this.props.handleChange(e.target.value)}>
+              {this.props.users.map((user, index) =>
+                <option key={index} value={index}>
+                 {user.email}
+                </option>
+               )}
+              </select>       </p>
+              <p>User's Wallet id: {this.props.selectedvalue}</p>        
+            </Card>
+          </div>
         </Col>
         <Col sm="12" md="12">
           <div className="wallet-card">

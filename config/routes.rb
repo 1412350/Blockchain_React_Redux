@@ -3,7 +3,7 @@ Rails.application.routes.draw do
     sessions: 'users/sessions',
     registrations: 'users/registrations'    
   }
-  resources :users, only: [:show, :update]
+  resources :users, only: [:show, :update, :index]
   resources :transactions, only: [:index, :create]  
   get 'hello_world', to: 'hello_world#index'
   get 'recent_transactions', to: 'transactions#recent_transactions'
