@@ -7,7 +7,7 @@ export default class TransactionTable extends React.Component {
   constructor() {
     super();
     this.state = {
-      transactions: []
+      transactions: [],
     }
   }
   get_time(time) {
@@ -15,17 +15,6 @@ export default class TransactionTable extends React.Component {
     const formattedDate = Moment(time).format('LT')
     const formatTime = Moment(time).format('LL')
     return formatTime + " " + formattedDate
-  }
-  handleGetUserWallet(id) {
-    var wallet = "";
-    axios.get(`/wallet_id/${id}`)
-    .then(response => {
-      this.setState({
-        transactions: response.data     
-      })
-    })
-    .catch(error => {
-    })
   }
   render() {   
     return(
@@ -40,10 +29,10 @@ export default class TransactionTable extends React.Component {
           </tr>
         </thead>
         <tbody>
-          {this.props.transactions.map((e, i) => (
+          {this.props.transactions.map((e, i) => ( 
             <tr key={i}>
-              <td>{e.sender_id}</td>
-              <td>{e.recipient_id}</td>
+              <td>{e.sender_wallet}</td>
+              <td>{e.recipient_wallet}</td>
               <td>{e.amount}</td>
               <td className="des">{e.description}</td>
               <td> {this.get_time(e.created_at)}</td>              

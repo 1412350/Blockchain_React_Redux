@@ -48,7 +48,7 @@ export default class SendForm extends React.Component {
       <Form className="send-form" onSubmit={this.handleSubmit.bind(this)}>
        <FormGroup>
          <div id='login-alert'>
-           { this.state.error != '' ? <p>{this.state.error}</p> : <span></span> }
+           { this.state.error != '' ? <p>{this.state.error}</p> : ""}
          </div>
          <Label className="form-label">To: </Label>
          <Input className="description" type="text" name="recipient_wallet_id" placeholder="Paste a wallet id of Recipient" value={this.state.wallet_id}

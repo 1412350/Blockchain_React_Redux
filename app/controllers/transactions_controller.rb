@@ -4,7 +4,7 @@ class TransactionsController < ApplicationController
     @recipient = User.find_by(wallet_id: params[:transaction][:recipient_wallet_id]) 
     amount = params[:transaction][:amount]
     if (@sender.id == @recipient.id)
-      render json: "Invalid recipient wallet_id! Please paste a wallet id that is not yours", status: 401
+      render json: "Invalid recipient wallet_id!\nPlease paste a wallet id that is not yours", status: 401
     else      
       if ((!amount.present?) || (params[:transaction][:amount] < 0) )
         render json: "Invalid amount of money!\n Amount have to be greater than 0 and be a float number!", status: 401
@@ -14,7 +14,8 @@ class TransactionsController < ApplicationController
         else     
           if @recipient.present?
             @transaction = Transaction.new(sender_id: @sender.id, recipient_id: @recipient.id, 
-              amount: params[:transaction][:amount], description: params[:transaction][:description])
+              amount: params[:transaction][:amount], description: params[:transaction][:description],
+               sender_wallet: @sender.wallet_id, recipient_wallet: @recipient.wallet_id)
             if @transaction.save
               @sender.account_balance = @sender.account_balance - params[:transaction][:amount]
               @sender.save            
@@ -48,4 +49,5 @@ class TransactionsController < ApplicationController
       render json: "There's no transaction yet!"
     end
   end
+  
 end
