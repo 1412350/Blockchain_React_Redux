@@ -1,3 +1,12 @@
+select#soflow-color {
+  color: #fff;
+  background: #77cced;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  border-radius: 20px;
+  padding-left: 15px;
+  font-family: "Montserrat Light", sans-serif;
+}
 .login-pg {
   background: #044a7c;
   height: 990px;
@@ -346,12 +355,3 @@
   -moz-osx-font-smoothing: grayscale; }
 .icon-send:before {
   content: "\e911"; }
-  select#soflow-color {
-    color: #fff;
-    background: #77cced;
-    -webkit-border-radius: 20px;
-    -moz-border-radius: 20px;
-    border-radius: 20px;
-    padding-left: 15px;
-    font-family: "Montserrat Light", sans-serif;
- }
