@@ -45,8 +45,8 @@ export default class Dashboard extends React.Component {
               <CardTitle>GET USER WALLET</CardTitle>
               <p className="description">Choose a user with user's email to show that user's wallet id <br></br>(This is a help for send BTC transactions)</p>              
               <hr/>
-              <p>User's Email: 
-              <select onChange={(e) => this.props.handleChange(e.target.value)}>
+              <p className="description">User's Email: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <select onChange={(e) => this.props.handleChange(e.target.value)} id="soflow-color">
               {this.props.users.map((user, index) =>
                 <option key={index} value={index}>
                  {user.email}

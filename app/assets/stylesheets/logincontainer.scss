@@ -25,6 +25,11 @@
     float: right !important;
     font-family: "Montserrat ExtraLight", sans-serif;
   }
+  .link-forgot {
+    cursor: pointer;
+    color: #10ADE4;
+    font-family: "Montserrat ExtraLight", sans-serif;
+  }
   h2 {
     font-family: "Montserrat Bold", sans-serif;
   }
@@ -46,7 +51,8 @@
 
   .description {
     font-family: "Montserrat ExtraLight", sans-serif;
-  }
+    white-space: nowrap;
+    }
 
   .title {
     font-family: "GillSans Light", sans-serif;
@@ -127,13 +133,13 @@
 
 @media (min-width: 1200px) {
   .login-box {
-    width: 30%;
+    width: 40%;
   }
 }
 
 @media (min-width: 1440px) {
   .login-box {
-    width: 30%;
+    width: 40%;
   }
   .wallet-info {
     width: 100%;
@@ -258,7 +264,13 @@
   }
   
 }
-
+.label {
+  font-family: "Montserrat Medium", sans-serif;
+  font-size: 90%;
+  margin-bottom: 0px;
+  font-style: bold;
+  white-space: nowrap;
+}
 .wallet-id {
   float: right !important;
   font-style: italic;
@@ -334,3 +346,12 @@
   -moz-osx-font-smoothing: grayscale; }
 .icon-send:before {
   content: "\e911"; }
+  select#soflow-color {
+    color: #fff;
+    background: #77cced;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+    padding-left: 15px;
+    font-family: "Montserrat Light", sans-serif;
+ }
