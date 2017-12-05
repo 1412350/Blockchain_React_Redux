@@ -28,7 +28,7 @@ export default class Dashboard extends React.Component {
   render() {
     return(
       <Row>
-        <Col sm="12" md="4">
+        <Col sm="12" md="5">
           <div className="wallet-card">
             <Card className="card-balance">
               <CardTitle>YOUR BALANCES</CardTitle>
@@ -39,7 +39,7 @@ export default class Dashboard extends React.Component {
             </Card>
           </div>
         </Col>
-        <Col sm="12" md="8">
+        <Col sm="12" md="7">
           <div className="wallet-card">
             <Card className="card-balance">
               <CardTitle>GET USER WALLET</CardTitle>

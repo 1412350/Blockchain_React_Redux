@@ -9,7 +9,7 @@ select#soflow-color {
 }
 .login-pg {
   background: #044a7c;
-  height: 990px;
+  height: 100vh;
   margin: 0px;
   
   .banner {
@@ -22,6 +22,7 @@ select#soflow-color {
 }
 
 .login-box {
+  width: 100%;
   padding: 35px 40px 30px 40px;
   margin: 200px auto;
   background: white;
@@ -130,25 +131,25 @@ select#soflow-color {
 
 @media (min-width: 768px) {
   .login-box {
-    width: 60%;
+    width: 50%;
   }
 }
 
 @media (min-width: 992px) {
   .login-box {
-    width: 50%;
+    width: 40%;
   }
 }
 
 @media (min-width: 1200px) {
   .login-box {
-    width: 40%;
+    width: 30%;
   }
 }
 
 @media (min-width: 1440px) {
   .login-box {
-    width: 40%;
+    width: 30%;
   }
   .wallet-info {
     width: 100%;
