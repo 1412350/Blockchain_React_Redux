@@ -9,7 +9,7 @@ select#soflow-color {
 }
 .login-pg {
   background: #044a7c;
-  height: 100vh;
+  height: 990px;
   margin: 0px;
   
   .banner {
@@ -22,12 +22,12 @@ select#soflow-color {
 }
 
 .login-box {
-  width: 100%;
   padding: 35px 40px 30px 40px;
-  margin: 200px auto;
-  background: white;
+  margin: 100px auto;
   overflow: auto;
+  background: white;
   line-height: 30px;
+  font-size: small;
   
   .link {
     cursor: pointer;
@@ -147,25 +147,25 @@ th {
 }
 @media (min-width: 768px) {
   .login-box {
-    width: 50%;
+    width: 60%;
   }
 }
 
 @media (min-width: 992px) {
   .login-box {
-    width: 40%;
+    width: 50%;
   }
 }
 
 @media (min-width: 1200px) {
   .login-box {
-    width: 30%;
+    width: 40%;
   }
 }
 
 @media (min-width: 1440px) {
   .login-box {
-    width: 30%;
+    width: 40%;
   }
   .wallet-info {
     width: 100%;
@@ -227,6 +227,7 @@ th {
 .wallet-container {
   padding: 20px;
   font-family: "Montserrat Light", sans-serif !important;
+  font-size: medium;
   
 }
 .wallet-info {
