@@ -41,6 +41,7 @@ class SignIn extends React.Component {
   componentWillMount() {
     this.props.user_actions.getAllUser();
     this.props.auth_actions.updateModal(false);
+    this.updatePassword("");
   }
   render() {
     return(
