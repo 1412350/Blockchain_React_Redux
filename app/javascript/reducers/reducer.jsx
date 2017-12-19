@@ -22,7 +22,7 @@ export default createReducer(initialState, {
     },
     [SIGNIN_USER_FAILURE]: (state, payload) => {
         return Object.assign({}, state, {
-            'wallet_id': "",
+            'wallet_id': payload.wallet_id,
             'error': payload.error,
             'auth_token': "", 
             'password': ""
@@ -75,16 +75,19 @@ export default createReducer(initialState, {
     [UPDATE_EMAIL]: (state, payload) => {
       return Object.assign({}, state, {
         'email': payload.email,
+        'error': ""
       });
     },
     [UPDATE_MODAL]: (state, payload) => {
       return Object.assign({}, state, {
         'modal': payload.modal,
+        'error': ""
       });
     },
     [GET_ALL_USER_SUCCESS]: (state, payload) => {
       return Object.assign({}, state, {
         'users': payload.users,
+        'error': ""
       });
     }
 });

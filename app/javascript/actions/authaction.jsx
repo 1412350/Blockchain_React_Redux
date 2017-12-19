@@ -13,12 +13,13 @@ export function signinUserSuccess(auth_token, wallet_id) {
   }
 }
 
-export function signinUserFailure(error) {
+export function signinUserFailure(error, wallet_id) {
   window.localStorage.removeItem('auth_token');
   return {
     type: SIGNIN_USER_FAILURE,
     payload: {
-      error: error.response.data
+      error: error.response.data,
+      wallet_id: wallet_id
     }
   }
 }
@@ -68,7 +69,7 @@ export function signinUser(wallet_id, password) {
             dispatch(signinUserSuccess(response.data.auth_token, wallet_id));            
           })
           .catch(error => {     
-            dispatch(signinUserFailure(error));
+            dispatch(signinUserFailure(error, wallet_id));
           })
         }
 

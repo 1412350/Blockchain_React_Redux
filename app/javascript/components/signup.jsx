@@ -29,7 +29,11 @@ class SignUp extends React.Component {
     e.preventDefault();
     this.props.actions.signupUser(this.props.email, this.props.password, this.props.cf_password);    
   }
-
+  componentWillMount() {
+    this.updateEmail("");
+    this.updateCfPassword("");
+    this.updatePassword("");    
+  }
   render() {
     return(
       <SigninContainer title="Create your Wallet" description="Sign up for a free wallet below">
@@ -39,17 +43,17 @@ class SignUp extends React.Component {
              { this.props.error != '' ? <p>{this.props.error}</p> : <span></span> }
            </div>
            <Label className="login-label">Email</Label>
-           <Input type="text" name="email" 
+           <Input type="text" name="email" value={this.props.email}
                   onChange={(e) => this.updateEmail(e.target.value)}/>
          </FormGroup>
          <FormGroup>
            <Label className="login-label">Password</Label>
-           <Input type="password" name="password" 
+           <Input type="password" name="password" value={this.props.password}
            onChange={(e) => this.updatePassword(e.target.value)}/>
          </FormGroup>
          <FormGroup>
            <Label className="login-label">Confirm Password</Label>
-           <Input type="password" name="cfpassword" 
+           <Input type="password" name="cfpassword" value={this.props.cf_password}
            onChange={(e) => this.updateCfPassword(e.target.value)}/>
          </FormGroup>
          <Button type="submit" className="btn btn-login" block={true}>Sign up</Button>

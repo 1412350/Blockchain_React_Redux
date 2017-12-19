@@ -56,7 +56,7 @@ class SignIn extends React.Component {
          </FormGroup>
          <FormGroup>
            <Label className="login-label">Password</Label>
-           <Input type="password" name="password" 
+           <Input type="password" name="password" value={this.props.password}
            onChange={(e) => this.updatePassword(e.target.value)}/>
          </FormGroup>
          <Button type="submit" className="btn btn-login" block={true}>Login</Button>
