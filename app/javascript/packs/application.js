@@ -29,6 +29,8 @@ const store = configureStore()
 const SignInComponent = () => {
   const auth_token = window.localStorage.getItem('auth_token'); 
   if (auth_token != "" && auth_token != null) {
+    window.location.hash = '/';
+    
   return null;
   }
   else {
@@ -40,7 +42,7 @@ const SignInComponent = () => {
 const SignUpComponent = () => {
   const auth_token = window.localStorage.getItem('auth_token');
   if (auth_token != "" && auth_token != null) {
-    window.location.hash = '/home';
+    window.location.hash = '/';
     return null;
   }
   else {
@@ -52,18 +54,14 @@ const SignUpComponent = () => {
 }
 const HomeComponent = () => {
   const auth_token = window.localStorage.getItem('auth_token');
-  console.log(auth_token)
-  console.log("ddk")  
   if (auth_token != "" && auth_token != null) {
-    window.location.hash = '/home';
+    window.location.hash = '/';
   console.log("ddk")      
     return (
       <DashboardContainer/>
     );
   }
   else {
-  console.log("adadd")      
-    
     window.location.hash = '/users/sign_in';
     return (
       <SignIn/>          
@@ -74,10 +72,10 @@ ReactDOM.render(
   <Provider store={store}>
     <HashRouter>
     <Switch>
-      <Route path='/users/sign_in' component={ SignIn }/>                    
-      <Route path='/users/sign_up' component={ SignUp}/>
+      <Route path='/users/sign_in' component={ SignInComponent }/>                    
+      <Route path='/users/sign_up' component={ SignUpComponent}/>
       <Route path='/users/sign_out' component={ SignOut}/>      
-      <Route path='/' component={ DashboardContainer}/>                               
+      <Route path='/' component={ HomeComponent}/>                               
     </Switch>
   </HashRouter>
   </Provider>,
