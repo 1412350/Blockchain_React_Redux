@@ -4,6 +4,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     @user.wallet_id = generate_random(30)
     @user.auth_token = generate_random(30)      
     @user.account_balance = 1000
+    p @user
     if @user.save
       render json: @user
     else

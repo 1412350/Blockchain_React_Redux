@@ -3,7 +3,7 @@ class TransactionsController < ApplicationController
     @sender = User.find_by(wallet_id: params[:transaction][:sender_wallet_id])
     @recipient = User.find_by(wallet_id: params[:transaction][:recipient_wallet_id]) 
     amount = params[:transaction][:amount]
-    if (@sender.id == @recipient.id)
+    if ((@recipient.present?) && (@sender.id == @recipient.id))
       render json: "Invalid recipient wallet_id!\nPlease paste a wallet id that is not yours", status: 401
     else      
       if ((!amount.present?) || (params[:transaction][:amount] < 0) )

@@ -7,7 +7,6 @@ import { MouseEvent } from 'react';
 export default class SignUp extends React.Component {
   constructor() {
     super();
-    this.defaultRecord("");
     this.updateInput = this.updateInput.bind(this);
   }
 
@@ -33,10 +32,6 @@ export default class SignUp extends React.Component {
       });
     })
     this.defaultRecord(this.state.error);    
-  }
-
-  defaultRecord(error) {
-    this.state = {email: "", password: "", cfpassword: "", error: error}
   }
 
   render() {

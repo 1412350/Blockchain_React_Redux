@@ -5,7 +5,6 @@ Rails.application.routes.draw do
   }
   resources :users, only: [:show, :update, :index]
   resources :transactions, only: [:index, :create]  
-  get 'hello_world', to: 'hello_world#index'
   get 'recent_transactions', to: 'transactions#recent_transactions'
   get 'wallet_id/:id', to: 'users#wallet_id'  
   root to: 'users#home'
